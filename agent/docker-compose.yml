@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  dc:
+    image: portainer/agent
+    environment:
+      HEALTH_CHECK: "check ssl verify none"
+      AGENT_PORT: "9001"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
