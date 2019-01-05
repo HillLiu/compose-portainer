@@ -1,8 +1,11 @@
 version: '3'
 
 services:
-  dc:
+  portainer-agent:
     image: portainer/agent
+    restart: always
+    ports:
+      - "9001:9001"
     environment:
       HEALTH_CHECK: "check ssl verify none"
       AGENT_PORT: "9001"
