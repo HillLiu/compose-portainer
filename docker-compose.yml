@@ -3,7 +3,8 @@ version: '2'
 services:
   portainer:
     image: portainer/portainer
-    command: -H unix:///var/run/docker.sock
+    # https://portainer.readthedocs.io/en/stable/configuration.html#available-flags
+    command: ["-H", "unix:///var/run/docker.sock", "--no-analytics"] 
     restart: always
     ports:
       - "9000:9000"
