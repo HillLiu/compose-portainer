@@ -6,6 +6,8 @@ services:
     # https://portainer.readthedocs.io/en/stable/configuration.html#available-flags
     command: ["-H", "unix:///var/run/docker.sock", "--no-analytics"] 
     restart: always
+    environment:
+      - AGENT_SECRET=${AGENT_SECRET} 
     ports:
       - "9000:9000"
     volumes:

@@ -7,7 +7,7 @@ services:
     ports:
       - "9001:9001"
     environment:
-      HEALTH_CHECK: "check ssl verify none"
-      AGENT_PORT: "9001"
+      - AGENT_PORT="9001"
+      - AGENT_SECRET=${AGENT_SECRET} 
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
