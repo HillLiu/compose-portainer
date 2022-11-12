@@ -2,6 +2,9 @@ version: '3'
 
 services:
   portainer-agent:
+    networks:
+      - default
+      - portainer-net
     image: portainer/agent
     restart: always
     ports:
@@ -11,3 +14,6 @@ services:
       - AGENT_SECRET=${AGENT_SECRET} 
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+
+networks:
+  portainer-net: {}
