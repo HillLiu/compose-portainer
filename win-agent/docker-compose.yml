@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  portainer-agent:
+    image: portainer/agent
+    restart: always
+    networks:
+      portainer_net:
+        ipv4_address: 172.29.0.2
+    ports:
+      - "0.0.0.0:9010:9001"
+    environment:
+      - AGENT_PORT=9001
+      - AGENT_SECRET=${AGENT_SECRET} 
+    volumes:
+      - C:\:C:\host \
+      - C:\ProgramData\docker\volumes:C:\ProgramData\docker\volumes
+      - source: '\\.\pipe\docker_engine'
+        target: '\\.\pipe\docker_engine'
+        type: npipe
+
+networks:
+   portainer_net:
+     ipam:
+       driver: default
+       config:
+         - subnet: 172.29.0.0/16
+           gateway: 172.29.0.1
