@@ -1,0 +1,16 @@
+version: '2' 
+
+services:
+  portainer:
+    image: portainer/portainer-ce
+    # https://portainer.readthedocs.io/en/stable/configuration.html#available-flags
+    restart: always
+    environment:
+      - AGENT_SECRET=${AGENT_SECRET-} 
+    ports:
+      - "9010:9000"
+    volumes:
+      - .\data:c:\data
+      - source: '\\.\pipe\docker_engine'
+        target: '\\.\pipe\docker_engine'
+        type: npipe
