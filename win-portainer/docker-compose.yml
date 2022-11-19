@@ -8,7 +8,7 @@ services:
     environment:
       - AGENT_SECRET=${AGENT_SECRET-} 
     ports:
-      - "9010:9000"
+      - "9020:9000"
     volumes:
       - .\data:c:\data
       - source: '\\.\pipe\docker_engine'
