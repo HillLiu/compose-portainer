@@ -9,7 +9,7 @@ services:
         "-H",
         "unix:///var/run/docker.sock",
         "--no-analytics",
-        "--admin-password-file=/etc/portainer/password",
+        "--admin-password-file=/data/admin",
       ]
     restart: always
     environment:
