@@ -1,13 +1,19 @@
-version: '2' 
+version: "3"
 
 services:
   portainer:
     image: portainer/portainer-ce
     # https://portainer.readthedocs.io/en/stable/configuration.html#available-flags
-    command: ["-H", "unix:///var/run/docker.sock", "--no-analytics"] 
+    command:
+      [
+        "-H",
+        "unix:///var/run/docker.sock",
+        "--no-analytics",
+        "--admin-password-file=/etc/portainer/password",
+      ]
     restart: always
     environment:
-      - AGENT_SECRET=${AGENT_SECRET-} 
+      - AGENT_SECRET=${AGENT_SECRET}
     ports:
       - "9000:9000"
     volumes:
