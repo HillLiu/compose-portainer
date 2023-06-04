@@ -3,7 +3,7 @@ version: "3"
 services:
   portainer:
     image: portainer/portainer-ce
-    # https://portainer.readthedocs.io/en/stable/configuration.html#available-flags
+    # https://docs.portainer.io/advanced/cli
     command:
       [
         "-H",
